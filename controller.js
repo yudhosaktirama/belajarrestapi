@@ -63,4 +63,18 @@ exports.rubahdataberdasarkanid = function(req,res){
             response.ok('Berhasil Merubah data',res)
         }
     })
+
+}
+
+exports.hapusMahasiswa = function(req,res){
+    var id = req.body.id;
+
+    koneksi.query('DELETE FROM mahasiswa WHERE id = ?',[id],
+    function(error,rows,field){
+        if (error) {
+            console.log(error);
+        }else{
+            response.ok('Berhasil hapus Mahasiswa',res);
+        }
+    })
 }
