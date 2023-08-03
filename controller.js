@@ -18,3 +18,15 @@ exports.tampilsemuadata = function(req,res){
         }
     });
 };
+
+exports.tampilberdasarkanid = function(req,res){
+    let id =req.params.id;
+    koneksi.query('SELECT * FROM mahasiswa where id = ?',[id],
+    function(error,rows,fields){
+        if (error) {
+            console.log(error)
+        }else{
+            response.ok(rows,res);
+        }
+    });
+}
